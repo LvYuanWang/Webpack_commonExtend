@@ -16,5 +16,21 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: "./public", to: "./" }
     ])
-  ]
+  ],
+  // 开发服务器配置
+  devServer: {
+    port: 8000,   // 监听端口
+    open: true,  // 自动打开浏览器
+    proxy: {  // 代理
+      "/search": {
+        target: "https://cn.bing.com",
+        changeOrigin: true, // 是否改变请求源
+      }
+    }
+  },
+  // 输出配置
+  stats: {
+    modules: false,
+    colors: true
+  }
 }
