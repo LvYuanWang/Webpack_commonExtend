@@ -1,1 +1,1 @@
-# clean-webpack-plugin
+# copy-webpack-plugin
