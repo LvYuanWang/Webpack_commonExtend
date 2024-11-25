@@ -1,5 +1,5 @@
-const url = "/search?q=必应翻译&FORM=TTAHP1";
+import jpg from "./assets/PartyAnimals.jpg";
 
-fetch(url).then(res => res.json()).then(data => {
-  console.log(data);
-})
+const img = document.createElement("img");
+img.src = jpg;
+document.body.appendChild(img);

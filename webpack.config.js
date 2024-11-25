@@ -17,6 +17,32 @@ module.exports = {
       { from: "./public", to: "./" }
     ])
   ],
+  // 模块配置
+  module: {
+    rules: [  // loader规则配置
+      {
+        test: /\.(png)|(jpg)|(gif)/, // 匹配文件的正则表达式
+        use: [
+          // {
+          //   loader: "file-loader",
+          //   options: {
+          //     name: "[name].[hash:5].[ext]",
+          //     outputPath: "images/"  // 输出目录
+          //   }
+          // },
+          {
+            loader: "url-loader",
+            options: {
+              // limit: false,  // 不限制任何大小, 所有经过loader的文件进行base64编码返回
+              limit: 10 * 1024,  // 只要文件不超过 10KB, 则使用base64编码, 否则, 交给file-loader处理
+              name: "[name].[hash:5].[ext]",
+              outputPath: "images/"
+            }
+          }
+        ]
+      }
+    ]
+  },
   // 开发服务器配置
   devServer: {
     port: 8000,   // 监听端口
