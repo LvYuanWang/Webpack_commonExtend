@@ -3,14 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "scripts": {
-        "build": "webpack --mode=production",
-        "dev": "webpack --mode=development"
-    },
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "clean-webpack-plugin": "^4.0.0",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"
     }
