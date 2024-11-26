@@ -6,15 +6,17 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   output: {
-    filename: "scripts/[name].[hash:5].js"
+    filename: "scripts/[name].[hash:5].js",
+    publicPath: "../",  // 打包后的资源的访问路径前缀
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
+      template: "./public/index.html",
+      filename: "html/index.html"
     }),
     new CopyWebpackPlugin([
-      { from: "./public", to: "./" }
+      { from: "./public/publicAssets", to: "./publicAssets" }
     ])
   ],
   // 模块配置
@@ -52,7 +54,9 @@ module.exports = {
         target: "https://cn.bing.com",
         changeOrigin: true, // 是否改变请求源
       }
-    }
+    },
+    openPage: "html/index.html",  // 打开的页面
+    publicPath: "/",  // 打包后的资源的访问路径前缀
   },
   // 输出配置
   stats: {

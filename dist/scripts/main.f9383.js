@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "../";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -118,4 +118,4 @@ document.body.appendChild(img);
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.5e7fa.js.map
+//# sourceMappingURL=main.f9383.js.map
