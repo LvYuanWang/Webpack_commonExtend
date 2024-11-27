@@ -1,12 +1,22 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpackBaseConfig = require("./webpack.base");
+const webpackDevConfig = require("./webpack.dev");
+const webpackProdConfig = require("./webpack.prod");
 
-module.exports = {
-  mode: "development",
-  devtool: "source-map",
-  output: {
-    filename: "[name].[hash:5].js"
-  },
-  plugins: [
-    new CleanWebpackPlugin()
-  ]
+module.exports = env => {
+  let configObj = {};
+  if (env && env.prod) {
+    // 生产环境
+    configObj = {
+      ...webpackBaseConfig,
+      ...webpackProdConfig
+    };
+    configObj.plugins = [...webpackBaseConfig.plugins, ...webpackProdConfig.plugins];
+  } else {
+    // 开发环境
+    configObj = {
+      ...webpackBaseConfig,
+      ...webpackDevConfig
+    };
+  }
+  return configObj;
 }
